@@ -40,3 +40,4 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+gem 'pg'
