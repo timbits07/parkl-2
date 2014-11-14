@@ -9,3 +9,15 @@
 	  </p>
   <% end %>  
 </div>
+<div class="container">
+	<% @parks.businesses.each do |park| %>
+		<div>
+			<ul>
+				<li><%= park.name %></li>
+				<li><%= park.location.display_address %></li>
+				<li><%= park.rating %></li>
+				<li><%= park.url %></li>
+			</ul>
+		</div>
+	<% end %>
+</div>
