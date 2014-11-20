@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    parameters = { term: "park", limit: 16 }
+    parameters = { term: "park", limit: 20 }
     @parks = Yelp.client.search('San Francisco', parameters)
   end
 

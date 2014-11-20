@@ -1,23 +1,37 @@
-<div class="jumbotron center">
-	<h1>Welcome to my app!</h1>
-	<% if user_signed_in? %>
-	  # do something
-	<% else %>
-	  <p>
-	    <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
-	    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-	  </p>
-  <% end %>  
-</div>
-<div class="container">
-	<% @parks.businesses.each do |park| %>
-		<div>
-			<ul>
-				<li><%= park.name %></li>
-				<li><%= park.location.display_address %></li>
-				<li><%= park.rating %></li>
-				<li><%= park.url %></li>
-			</ul>
-		</div>
-	<% end %>
-</div>
+<% if user_signed_in? %>
+	<h2>Here are some parks near San Francisco, CA</h2>
+	<div class="container">
+		<% @parks.businesses.each do |park| %>
+			<div>
+				<ul>
+					<li><%= park.name %></li>
+					<li><%= park.location.display_address %></li>
+					<li><%= park.rating %></li>
+					<li><%= park.url %></li>
+				</ul>
+			</div>
+		<% end %>
+	</div>
+<% else %>
+	<div class="jumbotron center">
+		<h1>Welcome to Parkl!</h1>
+		<h3>By default we are showing some parks near San Francisco, CA. Enter your city to see parks near you.  Create an account to begin saving your favorites and recording your experiences.</h3>
+		<p>
+    <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  	</p> 
+	</div>
+	<div class="container">
+		<% @parks.businesses.each do |park| %>
+			<div>
+				<ul>
+					<li><%= park.name %></li>
+					<li><%= park.location.display_address %></li>
+					<li><%= park.rating %></li>
+					<li><%= park.url %></li>
+				</ul>
+			</div>
+		<% end %>
+	</div>
+
+<% end %> 
